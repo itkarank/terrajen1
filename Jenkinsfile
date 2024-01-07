@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'action', choices: ['apply', 'destroy'])
+        choice(name: 'ACTION', choices: ['Apply', 'Destroy'], decription: 'Select Terraform Action')
     }
 
     stages {
@@ -24,22 +24,20 @@ pipeline {
                 }
             }
 
-        stage('Terraform Apply') {
+        
+         stage('Terraform Apply or Destroy') {
             steps {
-                if(params.action == 'apply')
-                {
-                    sh 'terraform apply -input=false tfplan'
-                }
-                }
-        }
-        stage('Terraform destroy') {
-            steps {
-                if(params.action == 'destroy')
-                {
-                    sh 'terraform destroy -auto-approve'
+            
+                script {
+                    if (params.ACTION == 'Apply') {
+                        sh 'terraform apply -auto-approve tfplan'
+                    } else if (params.ACTION == 'Destroy') {
+                        sh 'terraform destroy -auto-approve'
+                    } else {
+                        error 'Invalid Terraform action selected'
+                    }
                 }
             }
         }
-            }
     }
 
