@@ -5,7 +5,7 @@ resource "aws_instance" "my_instance" {
   instance_type = var.instance_type
   subnet_id     = "subnet-0ba60291691470713"
   key_name      = var.key_name
-  security_groups = ["sg-0ac504d26529d9e79"]
+  security_groups =  [aws_security_group.instance_sg.id]
   associate_public_ip_address = true
 
   tags = {
