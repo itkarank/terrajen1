@@ -5,7 +5,7 @@ resource "aws_instance" "my_instance" {
   instance_type = var.instance_type
   subnet_id     = aws_subnet.public_subnet.id
   key_name      = var.key_name
-  security_group = [aws_security_group.instance_sg.id]
+  security_groups = [aws_security_group.instance_sg.id]
   associate_public_ip_address = true
 
   tags = {
