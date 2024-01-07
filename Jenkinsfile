@@ -30,7 +30,7 @@ pipeline {
                 script {
                     if (params.ACTION == 'Apply') {
                         sh 'terraform apply -auto-approve tfplan'
-                    } else (params.ACTION == 'Destroy') {
+                    } else if (params.ACTION == 'Destroy') {
                         sh 'terraform destroy -auto-approve'
                     } 
                 }
