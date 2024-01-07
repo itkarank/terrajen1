@@ -1,6 +1,7 @@
 # Security Group for EC2 Instance
 
 resource "aws_security_group" "instance_sg" {
+ vpc_id = 
   name        = "instance_sg"
   description = "Security group for the EC2 instance"
 
