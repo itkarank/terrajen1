@@ -16,12 +16,12 @@ variable "private_subnet_cidr" {
 
 variable "public_subnet_az" {
   description = "Availability zone for public subnet"
-  default     = "us-east-1a"
+  default     = "us-east-2a"
 }
 
 variable "private_subnet_az" {
   description = "Availability zone for private subnet"
-  default     = "us-east-1b"
+  default     = "us-east-2b"
 }
 
 variable "ami" {
