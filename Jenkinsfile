@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        choice(name: 'action', choices: ['apply', 'destroy'])
+    }
 
     stages {
         stage('Checkout') {
