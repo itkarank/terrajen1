@@ -23,8 +23,20 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
+                if(params.action == 'apply')
+                {
                     sh 'terraform apply -input=false tfplan'
                 }
+                }
+        }
+        stage('Terraform destroy') {
+            steps {
+                if(params.action == 'destroy')
+                {
+                    sh 'terraform destroy -auto-approve'
+                }
+            }
+        }
             }
     }
 }
