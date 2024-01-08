@@ -6,9 +6,4 @@ resource "aws_s3_bucket" "b" {
   }
 }
 
- backend "s3" {
-bucket = "my-tf-testkris-bucket"
-   key = "terraform.tfstate"
-   region = "us-east-2"
-   }
    
