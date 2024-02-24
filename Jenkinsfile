@@ -5,11 +5,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main2', url: 'https://github.com/itkarank/terrajen1'
-            }
-        }
+        
 
         stage('Terraform Init') {
             steps {
