@@ -10,7 +10,7 @@ count = 2
   associate_public_ip_address = true
 
   tags = {
-    Role  =  count.index == 0 ? "CI/CD server" : "production server"
+    Name  =  count.index == 0 ? "CI/CD server" : "production server"
   }
 }
 
