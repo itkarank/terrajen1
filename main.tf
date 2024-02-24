@@ -4,7 +4,7 @@ resource "aws_instance" "my_instance" {
 count = 2
   ami           = var.ami
   instance_type = var.instance_type
-  subnet_id     = public_subnet.id
+  subnet_id     = aws_subnet.public_subnet.id
  key_name      = "newkey"
   security_groups =  [aws_security_group.instance_sg.id]
   associate_public_ip_address = true
